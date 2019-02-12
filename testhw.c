@@ -24,7 +24,7 @@ int testhw_init(void)
        printk(KERN_INFO "Loading Module\n");
        printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
        printk(KERN_INFO "%lu\n", jiffies);
-       printk(KERN_INFO "%lu\n", HZ);
+       printk(KERN_INFO "%d\n", HZ);
        return 0;
 }
 
