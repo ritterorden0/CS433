@@ -23,8 +23,6 @@ int simple_init(void)
 {
        printk(KERN_INFO "Loading Module\n");
        printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
-       unsigned long temp = gcd(3300, 24);
-       printk(KERN_INFO "%lu\n", temp);
        printk(KERN_INFO "%lu\n", jiffies);
        printk(KERN_INFO "%lu\n", HZ);
        return 0;
@@ -34,6 +32,7 @@ int simple_init(void)
 void simple_exit(void)
 {
 	printk(KERN_INFO "Removing Module\n");
+	printk(KERN_INFO "%lu\n", gcd(3300, 24);
         printk(KERN_INFO "%lu\n", jiffies);
 }
 
