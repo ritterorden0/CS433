@@ -19,7 +19,7 @@
 
 
 /* This function is called when the module is loaded. */
-int simple_init(void)
+int testhw_init(void)
 {
        printk(KERN_INFO "Loading Module\n");
        printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
@@ -29,16 +29,16 @@ int simple_init(void)
 }
 
 /* This function is called when the module is removed. */
-void simple_exit(void)
+void testhw_exit(void)
 {
 	printk(KERN_INFO "Removing Module\n");
-	printk(KERN_INFO "%lu\n", gcd(3300, 24);
+	printk(KERN_INFO "%lu\n", gcd(3300, 24));
         printk(KERN_INFO "%lu\n", jiffies);
 }
 
 /* Macros for registering module entry and exit points. */
-module_init( simple_init );
-module_exit( simple_exit );
+module_init(testhw_init);
+module_exit(testhw_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple Module");
