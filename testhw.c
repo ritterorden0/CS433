@@ -41,5 +41,5 @@ module_init(testhw_init);
 module_exit(testhw_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("Simple Module");
-MODULE_AUTHOR("SGG");
+MODULE_DESCRIPTION("HW 1");
+MODULE_AUTHOR("Brenda Tang and Chantell Chapman");
