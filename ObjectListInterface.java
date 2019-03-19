@@ -2,7 +2,6 @@
  * interface for ObjectList
  * 
  * @author Brenda Tang
- * @version 05 December 2016
  */
 public interface ObjectListInterface
 {
