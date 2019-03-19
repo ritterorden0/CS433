@@ -2,7 +2,6 @@
  * ObjectListNode.java
  * 
  * @author Brenda Tang
- * @version 05 December 2016
  */
 
 public class ObjectListNode implements ObjectListNodeInterface {
