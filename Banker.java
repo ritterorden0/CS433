@@ -12,13 +12,13 @@ public class Banker
     //the available amount of each resource
     public int[] available = new int[NUMBER_OF_RESOURCES]; //int available[NUMBER_OF_RESOURCES];
 
-	///the maximum demand of each customer 
+    //the maximum demand of each customer 
     public int[][] maximum = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES]; //int maximum[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
    
-	//the amount currently allocated to each customer
+    //the amount currently allocated to each customer
     public int[][] allocation = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES]; //int allocation[NUMBER OF CUSTOMERS][NUMBER OF RESOURCES];
    
-	//the remaining need of each customer
+    //the remaining need of each customer
     public int[][] need = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES]; //int need[NUMBER OF CUSTOMERS][NUMBER OF RESOURCES];
     
     public (int a[][])  
@@ -46,7 +46,7 @@ public class Banker
 
     }
     
-    //----AVAILABLE--------
+    //----------AVAILABLE----------------
     public void fill_available() 
     {
 	Scanner read = new Scanner(System.in);
@@ -69,7 +69,7 @@ public class Banker
     }
 
 
-//--------------MAXIMUM-----------
+//--------------MAXIMUM------------------
     public void fill_max() 
     {
    //program will initially read in a file containing the maximum number of requests for each customer
