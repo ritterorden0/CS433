@@ -48,34 +48,34 @@ public class Banker
     }
 
 
-	//------------FIND NEED----------
-	public void find_need(int max[][], int allocation[][])
+    //------------FIND NEED----------
+    public void find_need(int max[][], int allocation[][])
     {
 	int[][] temp = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
 	
 	for(int i=0; i < NUMBER_OF_CUSTOMERS; i++)
-	    {
+	{
 
-		for(int j=0; j < NUMBER_OF_RESOURCES; j++)
-		    { 
+	    for(int j=0; j < NUMBER_OF_RESOURCES; j++)
+	    { 
 			
-			temp[i][j] = max[i][j] - allocation[i][j]; 
+		temp[i][j] = max[i][j] - allocation[i][j]; 
 		   
-		    }	
-	    }
+	    }	
+	}
 	need = temp; 
     }
 
-	//--------FIND AVAIlABLE------------
+    //--------FIND AVAIlABLE------------
     public void find_Available()
     {
 	for(int i=0; i<NUMBER_OF_RESOURCES; i++)
+	{
+	    for(int j=0; j<NUMBER_OF_CUSTOMERS; j++)
 	    {
-		for(int j=0; j<NUMBER_OF_CUSTOMERS; j++)
-		    {
-			available[j] -= allocation[j][i]; 	
-		    }	
+		available[j] -= allocation[j][i]; 	
 	    }	
+	}	
     }
     
     //---------SAFETY ALGORITHM----------------
@@ -90,48 +90,48 @@ public class Banker
 	  
 	  boolean finalSafetyCheck=true;
 	  while(safetyCount != NUMBER_OF_CUSTOMERS)
-	      {
-		  for(int i = 0; i<NUMBER_OF_CUSTOMERS; i++)
-		      {
-			  if(Work[0] <= need[i][0] && Finish[i] == 0)
-			      {		
-				  for(int j = 0; j < NUMBER_OF_RESOURCES; j++)
-				      {
-					  if(Work[j] <= need[i][j])
-					      {
-						  smallerCount++;
-					      }
-					  else if(smallerCount == NUMBER_OF_RESOURCES)
-					      {
-						  for(int k=0; k < NUMBER_OF_RESOURCES; k++)
-						      {
-							  Work[k] += allocation[i][k];
-						      }
-						  smallerCount=0;
-					      }
-					  else
-					      smallerCount=0;
-				      }
-				  Finish[i] = 1;
-				  safetyCount = 0;		
-			      }
-			  else		
-			      {
-				  safetyCount++;
-			      }	
-		      }
-	      }
+	  {
+	    for(int i = 0; i<NUMBER_OF_CUSTOMERS; i++)
+	    {
+		if(Work[0] <= need[i][0] && Finish[i] == 0)
+		{		
+			for(int j = 0; j < NUMBER_OF_RESOURCES; j++)
+			{
+				if(Work[j] <= need[i][j])
+				{
+					smallerCount++;
+				}
+				else if(smallerCount == NUMBER_OF_RESOURCES)
+				{
+					for(int k=0; k < NUMBER_OF_RESOURCES; k++)
+					{
+						Work[k] += allocation[i][k];
+					}
+					smallerCount=0;
+				}
+				else
+				smallerCount=0;
+			}
+			Finish[i] = 1;
+			safetyCount = 0;		
+		}
+		else		
+		{
+			safetyCount++;
+		}	
+	}
+    }
 	  
 	  for(int i = 0; i < NUMBER_OF_RESOURCES; i++)
 	      {
 		  if(Finish[i] == 0)
-		      {
-			  finalSafetyCheck = false;
-		      }
+		  {
+			finalSafetyCheck = false;
+		  }
 		  else
-		      {	
-			  ;
-		      }
+		  {	
+			;
+		  }
 	      }
 	  
 	  return finalSafetyCheck; 
@@ -144,14 +144,14 @@ public class Banker
 	Scanner read = new Scanner(System.in);
 	
 	for(int i = 0; i < NUMBER_OF_RESOURCES; i++) 
-		{
+	{
 	    System.out.println("Enter data for available: ");
 	    available[i] = read.nextInt();
-		}
+	}
 
     }
 
-	//----------ACCEPTED-----------------
+    //----------ACCEPTED-----------------
     public boolean resource_Request_Accepted(int index, int[] request)
     {
 	boolean needSuccess=false;
@@ -177,7 +177,7 @@ public class Banker
 	    }
 	
 	
-	for(int i=0; i<NUMBER_OF_RESOURCES; i++)
+	for(int i = 0; i < NUMBER_OF_RESOURCES; i++)
 	    {
 		if(request[i] <= available[i])
 		    {
@@ -208,16 +208,16 @@ public class Banker
     }
 
 
-	//----------RELEASE RESOURCES -------------
+    //----------RELEASE RESOURCES -------------
     public void resource_release(int index, int[] request) 
     {
 	
 	for(int i = 0; i < NUMBER_OF_RESOURCES; i++) 
-		{
+	{
 	    available[i] = available[i] + request[i];
 	    allocation[index][i] = allocation[index][i] - request[i];
 	    need[index][i] = need[index][i] + request[i];
-		}
+	}
 	
     }
     
@@ -226,14 +226,14 @@ public class Banker
     public void print_avail() 
     {
 	for(int i = 0; i < NUMBER_OF_RESOURCES; i++) 
-		{
+	{
 	    System.out.println(available[i]);
-		}
+	}
 
     }
 
 
-	//--------------MAXIMUM--------------
+    //--------------MAXIMUM--------------
     public void fill_max() 
     {
    //program will initially read in a file containing the maximum number of requests for each customer
@@ -350,7 +350,7 @@ public class Banker
 		isGoing = false;
 		break;
 
-		//command ‘RQ’ for requesting resources
+	    //command ‘RQ’ for requesting resources
 	    case "RQ":
 		String[] req = command.split(" ");
 		if(req.length !=6) 
@@ -390,7 +390,7 @@ public class Banker
 		}
 
 		
-		//command 'RL’ for releasing resources
+	    //command 'RL’ for releasing resources
 	    case "RL":
 
 		String[] req2 = command.split(" ");
@@ -413,7 +413,7 @@ public class Banker
 		
 		break;
 		
-		//command ‘*’ to output the values of the different data structures
+	    //command ‘*’ to output the values of the different data structures
 	    case "*":
 		System.out.println("Maximum:");
 		test.print_array(test.maximum);
