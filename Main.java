@@ -18,7 +18,7 @@ class Main {
 
       Int[] numArray = new Int[5];
       for (int i = 0; i < 5; i++) {
-        resArray[i+1] = numArray[i];
+        Integer.parseInt(resArray[i+1]) = numArray[i];
       }
       
       switch(resArray[0]) {
