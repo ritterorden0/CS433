@@ -9,10 +9,28 @@ class Main {
         available[i] = Integer.parseInt(br.readLine());
       }
 
-      int req[] = new array[Banker.NUMBER_OF_RESOURCES];
-      System.out.println("Enter resource request: \n");
-      Scanner s = new Scanner(System.in);
+      String[] resArray = new String[6];
+      for (int i = 0; i < 6; i++) {
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        resArray[i] = s;
+      }
 
-      Banker.request_resourceS(custNum, req[]);
+      Int[] numArray = new Int[5];
+      for (int i = 0; i < 5; i++) {
+        resArray[i+1] = numArray[i];
+      }
+      
+      switch(resArray[0]) {
+        case "RQ":
+          request_resources(resArray[1], numArray);
+          break;
+        case "RL":
+          release_resources(resArray[1], numArray);
+          break;
+        default:
+          System.out.println("Invalid instruction.\n");
+      }
+      
   }
 }
