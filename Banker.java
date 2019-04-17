@@ -1,6 +1,5 @@
 import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 
 public class Banker 
@@ -21,14 +20,19 @@ public class Banker
 	//the remaining need of each customer
     public int[][] need = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES]; //int need[NUMBER OF CUSTOMERS][NUMBER OF RESOURCES];
     
-    public (int a[][], int b[][])  
-    {
-		this.maximum = a;
-		this.allocation = b;
-    }
+    //public (int a[][], int b[][])  
+    //{
+		//this.maximum = a;
+		//this.allocation = b;
+    //}
 
     public Banker() 
     {
+      // initializes available resources array
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      for (int i = 0; i < NUMBER_OF_RESOURCES; i++) {
+        available[i] = Integer.parseInt(br.readLine());
+      }
 		;
     }
    
