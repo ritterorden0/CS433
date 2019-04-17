@@ -1,27 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+import java.util.*;
+import java.io.*;
 
-#define NUMBER_OF_CUSTOMERS 5
-#define NUMBER_OF_RESOURCES 4
+class Main {
+  public static void main(String[] args) {
+      // initializes quantities of available resources
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      for (int i = 0; i < NUMBER_OF_RESOURCES; i++) {
+        available[i] = Integer.parseInt(br.readLine());
+      }
 
-int available[NUMBER_OF_RESOURCES];
-int max[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
-int alloc[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
-int need[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
-int request[NUMBER_OF_RESOURCES];
-int release[NUMBER_OF_RESOURCES];
+      int req[] = new array[Banker.NUMBER_OF_RESOURCES];
+      System.out.println("Enter resource request: \n");
+      Scanner s = new Scanner(System.in);
 
-int request_resources(int customer_num, int request[]) {
-
-    return 0;
-}
-
-void release_resources(int customer_num, int release[]) {
-}
-
-int isSafe() {
-    if () {
-        return 0;
-    }
-    return 1;
+      Banker.request_resourceS(custNum, req[]);
+  }
 }
