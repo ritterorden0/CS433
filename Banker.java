@@ -20,11 +20,11 @@ public class Banker
 	//the remaining need of each customer
     public int[][] need = new int[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES]; //int need[NUMBER OF CUSTOMERS][NUMBER OF RESOURCES];
     
-    //public (int a[][], int b[][])  
-    //{
-		//this.maximum = a;
-		//this.allocation = b;
-    //}
+    public (int a[][], int b[][])  
+    {
+		this.maximum = a;
+		this.allocation = b;
+    }
 
     public Banker() 
     {
@@ -36,11 +36,11 @@ public class Banker
 		;
     }
    
-   //request_resources() function should return 0 if successful and −1 if unsuccessful
+    //request_resources() function should return 0 if successful and −1 if unsuccessful
     public int request_resources(int customer_num, int[] request) //int request_resources(int customer_num, int request[]);
 
     {
-	
+		
 		return 0;
     }
     
