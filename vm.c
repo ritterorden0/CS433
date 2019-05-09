@@ -9,6 +9,8 @@
 #define OFFSET_MASK 0xFF
 #define TLB_SIZE 16
 #define PAGE_TABLE_SIZE 256
+#define BUF_SIZE 10
+#define BYTES 256
 
 int pageNumTable[PAGE_TABLE_SIZE];
 int pageFrameTable[PAGE_TABLE_SIZE];
@@ -23,6 +25,14 @@ int TLBHits = 0;
 int firstAvailableFrame = 0;
 int firstAvailablePageNum = 0;
 int numTLBEntries = 0;
+
+FILE *addr_file;
+FILE *backing_store;
+
+char addr[BUF_SIZE];
+int logicalAddr;
+signed char buffer[BYTES];
+signed char value;
 
 void getPage(int addr);
 void readFromStore(int pageNum);
@@ -39,5 +49,24 @@ void getPage(int addr) {
             frameNum = TLBFrameNum[i];
             TLBHits++;
         }
+    }
+
+    if (frameNum == -1) {
+        for (int i = 0; i < firstAvailablePageNum; i++) {
+            if (pageNumTable[i] == pageNum) {
+                frameNum = pageFrameTable[i];
+            }
+        }
+        if (frameNum == -1) {
+            readFromStore(pageNum);
+            pageFaults++;
+            frameNum = firstAvailableFrame - 1;
+        }
+    }
+}
+
+void readFromStore(int pageNum) {
+    if (fseek(backing_store, pageNum * BYTES, SEEK_SET) != 0) {
+        fprintf(stderr, "Error seeking in backing store.\n");
     }
 }
