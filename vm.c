@@ -181,7 +181,7 @@ void insertInTLB(int pageNum, int frameNum)
 
   else 
   {
-    for( i = i; i < numOfTLBEntries - 1; i++) 
+    for( i = i; i < numTLBEntries - 1; i++) 
     {
       TLBPageNum[i] = TLBPageNum[i+1];
       TLBFrameNum[i] = TLBFrameNum[i+1];
