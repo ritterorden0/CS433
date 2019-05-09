@@ -1,3 +1,5 @@
+/*Chantell Chapman, Brenda Tang*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
